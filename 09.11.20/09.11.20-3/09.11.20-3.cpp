@@ -5,6 +5,8 @@
 
 void show(int ** a, int size);
 
+/* 3. Задать двухмерный динамический массив и вывести */
+
 int main()
 {
 	setlocale(LC_ALL, "");
