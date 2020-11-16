@@ -3,6 +3,8 @@
 #include <time.h>
 #include <locale.h>
 
+int menu_exit;
+
 /*Написать программу с  выбором из меню
 1) сортировка выбором
 2) сортировка пузырьком
@@ -11,7 +13,7 @@
 Задачи 1, 2 и 3 должны быть функциями*/
 
 void show(int* a, int size);
-void Menu(int* A, int size);
+int Menu(int* A, int size);
 void selection_sort(int* a,int size);
 void bubble_sort(int* a, int size);
 void quick_sort(int* a, int left, int right);
@@ -30,26 +32,26 @@ int main()
 		A[i] = rand() % 51;
 	}
 	show(A,size);
-	Menu(A,size);
+	do
+	{
+		Menu(A, size);
+	} while(menu_exit!=4);
 	return 0;
 }
 
-void Menu(int* A, int size)
+int Menu(int* A, int size)
 {
-	while(1)
+	int menu;
+	printf("\n1) сортировка выбором\n2) сортировка пузырьком\n3) быстрая сортировка\n4) выход из программы\n");
+	scanf_s("%d", &menu);
+	switch(menu)
 	{
-		int menu;
-		printf("\n1) сортировка выбором\n2) сортировка пузырьком\n3) быстрая сортировка\n4) выход из программы\n");
-		scanf_s("%d", &menu);
-		if(menu == 4) break;
-
-		switch(menu)
-		{
-			case 1: selection_sort(A, size); show(A, size); break;
-			case 2: bubble_sort(A, size); show(A, size); break;
-			case 3: quick_sort(A, 0, size - 1); show(A, size); break;
-		}
+		case 1: selection_sort(A, size); show(A, size); break;
+		case 2: bubble_sort(A, size); show(A, size); break;
+		case 3: quick_sort(A, 0, size - 1); show(A, size); break;
+		case 4: menu_exit=4; break;
 	}
+	return 0;
 }
 
 void show(int* a, int size)
@@ -94,33 +96,35 @@ void bubble_sort(int* a,int size)
 
 void quick_sort(int* a, int left, int right)
 {
-	int tmp;
-	int old_l = left;
-	int old_r = right;
-	tmp = a[left];
-	while(left < right)
+	int i = left, j = right, x = a[(left + right) / 2],tmp;
+	do
 	{
-		while((a[right] >= tmp) && (left < right))
-			right--;
-		if(left != right)
+		while(a[i] < x)
 		{
-			a[left] = a[right];
-			left++;
+			i++;
 		}
-		while((a[left] <= tmp) && (left < right))
-			left++;
-		if(left != right)
+		while(a[j] > x)
 		{
-			a[right] = a[left];
-			right--;
+			j--;
 		}
+		if(i <= j)
+		{
+			if(a[i] > a[j])
+			{
+				tmp=a[i];
+				a[i]=a[j];
+				a[j]=tmp;
+			}
+			i++;
+			j--;
+		}
+	} while(i <= j);
+	if(i < right)
+	{
+		quick_sort(a, i, right);
 	}
-	a[left] = tmp;
-	tmp = left;
-	left = old_l;
-	right = old_r;
-	if(left < tmp)
-		quick_sort(a, left, tmp - 1);
-	if(right > tmp)
-		quick_sort(a, tmp + 1, right);
+	if(left < j)
+	{
+		quick_sort(a, left, j);
+	}
 }
