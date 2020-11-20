@@ -48,3 +48,30 @@ int array_search(int* a, int size, int x)
 		return -1;
 	}
 }
+
+int** matr_rand(int x, int y, int random)
+{
+	int** A = NULL;
+	A = (int**)malloc(x * sizeof(int*));
+	for(int i = 0; i < x; i++)
+	{
+		A[i] = (int*)malloc(y * sizeof(int));
+		for(int j = 0; j < y; j++)
+		{
+			A[i][j] = rand() % (random+1);
+		}
+	}
+	return A;
+}
+
+void matr_show(int** a, int x, int y)
+{
+	for(int i = 0; i < x; i++)
+	{
+		for(int j = 0; j < y; j++)
+		{
+			printf("%d \t", a[i][j]);
+		}
+		printf("\n");
+	}
+}

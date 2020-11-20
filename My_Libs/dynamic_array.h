@@ -33,3 +33,20 @@ int* array_enter(int size);
 /// <param name="x"> - The number we are looking for</param>
 /// <returns>Ordinal X or -1 if the number is not in the array</returns>
 int array_search(int* a, int size, int x);
+
+/// <summary>
+/// Creates an matrix of the specified size, filled with random numbers
+/// </summary>
+/// <param name="x"> - Number of matrix rows</param>
+/// <param name="y"> - Number of matrix columns</param>
+/// <param name="random"> - The upper limit of the random numbers</param>
+/// <returns>Pointer to matrix</returns>
+int** matr_rand(int x, int y, int random);
+
+/// <summary>
+/// Show matrix
+/// </summary>
+/// <param name="a"> - Pointer to array</param>
+/// <param name="x"> - Number of matrix rows</param>
+/// <param name="y"> - Number of matrix columns</param>
+void matr_show(int** a, int x, int y);
