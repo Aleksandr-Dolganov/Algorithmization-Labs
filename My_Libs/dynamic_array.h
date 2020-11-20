@@ -6,9 +6,9 @@
 /// <summary>
 /// Show array
 /// </summary>
-/// <param name="A"> - Pointer to array</param>
+/// <param name="a"> - Pointer to array</param>
 /// <param name="Size"> - Size of array</param>
-void array_show(int* A, int size);
+void array_show(int* a, int size);
 
 /// <summary>
 /// Creates an array of the specified size, filled with random numbers

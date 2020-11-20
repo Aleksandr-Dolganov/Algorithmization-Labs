@@ -64,3 +64,40 @@ void quick_sort(int* a, int left, int right)
 		quick_sort(a, left, j);
 	}
 }
+
+void siftDown(int* a, int root, int bottom)
+{
+	int maxChild;
+	int done = 0;
+	while((root * 2 <= bottom) && (!done))
+	{
+		if(root * 2 == bottom)
+			maxChild = root * 2;
+		else if(a[root * 2] > a[root * 2 + 1])
+			maxChild = root * 2;
+		else
+			maxChild = root * 2 + 1;
+		if(a[root] < a[maxChild])
+		{
+			int temp = a[root];
+			a[root] = a[maxChild];
+			a[maxChild] = temp;
+			root = maxChild;
+		}
+		else
+			done = 1;
+	}
+}
+
+void heap_sort(int* a, int size)
+{
+	for(int i = (size / 2) - 1; i >= 0; i--)
+		siftDown(a, i, size - 1);
+	for(int i = size - 1; i >= 1; i--)
+	{
+		int temp = a[0];
+		a[0] = a[i];
+		a[i] = temp;
+		siftDown(a, 0, i - 1);
+	}
+}

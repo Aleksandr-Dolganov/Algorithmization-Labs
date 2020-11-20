@@ -1,10 +1,10 @@
 #include "dynamic_array.h"
 
-void array_show(int* A, int size)
+void array_show(int* a, int size)
 {
 	for(int i = 0; i < size; i++)
 	{
-		printf("%d\t", A[i]);
+		printf("%d\t", a[i]);
 	}
 	printf("\n");
 }
