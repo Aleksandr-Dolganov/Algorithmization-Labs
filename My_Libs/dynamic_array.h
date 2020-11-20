@@ -24,3 +24,12 @@ int* array_rand(int size, int random);
 /// <param name="size"> - Size of array</param>
 /// <returns>Pointer to array</returns>
 int* array_enter(int size);
+
+/// <summary>
+/// Search function for number X in an array
+/// </summary>
+/// <param name="a"> - Pointer to array</param>
+/// <param name="size"> - Size of array</param>
+/// <param name="x"> - The number we are looking for</param>
+/// <returns>Ordinal X or -1 if the number is not in the array</returns>
+int array_search(int* a, int size, int x);

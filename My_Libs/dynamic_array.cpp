@@ -6,6 +6,7 @@ void array_show(int* A, int size)
 	{
 		printf("%d\t", A[i]);
 	}
+	printf("\n");
 }
 
 int* array_enter(int size)
@@ -29,4 +30,21 @@ int* array_rand(int size, int random)
 		A[i] = rand() % (random + 1);
 	}
 	return A;
+}
+
+int array_search(int* a, int size, int x)
+{
+	int i = 0;
+	while(i < size && a[i] != x)
+	{
+		i++;
+	}
+	if(i < size)
+	{
+		return i;
+	}
+	else
+	{
+		return -1;
+	}
 }
