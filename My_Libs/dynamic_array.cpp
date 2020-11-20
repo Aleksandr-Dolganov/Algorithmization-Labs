@@ -58,7 +58,7 @@ int** matr_rand(int x, int y, int random)
 		A[i] = (int*)malloc(y * sizeof(int));
 		for(int j = 0; j < y; j++)
 		{
-			A[i][j] = rand() % (random+1);
+			A[i][j] = rand() % (random + 1);
 		}
 	}
 	return A;
