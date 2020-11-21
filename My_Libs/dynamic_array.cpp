@@ -72,6 +72,6 @@ void matr_show(int** a, int x, int y)
 		{
 			printf("%d \t", a[i][j]);
 		}
-		printf("\n");
+		printf("\n\n");
 	}
 }
