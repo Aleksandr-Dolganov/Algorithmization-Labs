@@ -41,7 +41,7 @@ void Menu(sportsmen* stud, int size)
 {
 	system("cls");
 	int menu;
-	std::cout << "1) Ввод данных." << "\n2) Вывод данных." << "\n3) Сортировка по алфавиту." << "\n4) Поиск." << "\n5) Выход из программы.\n" << "Действие: ";
+	std::cout << "1) Ввод данных." << "\n2) Вывод данных." << "\n3) Сортировка по алфавиту." << "\n4) Поиск по виду спорта." << "\n5) Выход из программы.\n" << "Действие: ";
 	std::cin >> menu;
 	switch(menu)
 	{
@@ -110,22 +110,22 @@ void data_sort(sportsmen* stud, int size)
 void data_find(sportsmen* stud, int size)
 {
 	system("cls");
-	char surfind[20];
+	char sportfind[20];
 	int flag = 0;
-	std::cout << "Введите фамилию студента которого хотите найти: ";
-	std::cin >> surfind;
+	std::cout << "Введите вид спорта: ";
+	std::cin >> sportfind;
 	for(int i = 0; i < size; i++)
 	{
-		if(!strcmp(surfind, stud[i].surname))
+		if(!strcmp(sportfind, stud[i].sport))
 		{
 			std::cout << "Номер студента: " << i + 1 << "\nФамилия: " << stud[i].surname << "\nВозраст: " << stud[i].age << "\nВид спорта: " << stud[i].sport << "\n";
 			flag = 1;
-			break;
 		}
+		std::cout << "\n";
 	}
 	if(flag == 0)
 	{
-		std::cout << "Студента с такой фамилией нет в базе.\n";
+		std::cout << "Ниодного студента с таким видом спорта нет в базе.\n";
 	}
 	system("PAUSE");
 }
