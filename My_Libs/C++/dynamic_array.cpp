@@ -14,7 +14,7 @@ void array_show(int* a, int size)
 int* array_enter(int size)
 {
 	int* A = NULL;
-	A = (int*)malloc(size * sizeof(int));
+	A = new int;
 	cout << "\n";
 	for(int i = 0; i < size; i++)
 	{
@@ -26,7 +26,7 @@ int* array_enter(int size)
 int* array_rand(int size, int random)
 {
 	int* A = NULL;
-	A = (int*)malloc(size * sizeof(int));
+	A = new int;
 	for(int i = 0; i < size; i++)
 	{
 		A[i] = rand() % (random + 1);
@@ -50,6 +50,8 @@ int array_search(int* a, int size, int x)
 		return -1;
 	}
 }
+
+//Fix matr
 
 int** matr_rand(int x, int y, int random)
 {
