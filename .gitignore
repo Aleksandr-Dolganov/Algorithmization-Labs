@@ -427,3 +427,9 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,c,c++
+
+# My additions
+
+.sln
+.vcxproj
+.vcxproj.filters
