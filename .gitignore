@@ -430,6 +430,6 @@ MigrationBackup/
 
 # My additions
 
-.sln/
-.vcxproj/
-.vcxproj.filters/
+*.sln/
+*.vcxproj/
+*.vcxproj.filters/
